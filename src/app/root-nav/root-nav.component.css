@@ -1,0 +1,50 @@
+
+
+.sidenav-container {
+  height: 100%;
+  
+}
+
+.sidenav {
+ 
+  width: 200px;
+  
+}
+
+.sidenav .mat-toolbar {
+  
+  background: lavender;
+  font-size: 40px;
+
+}
+
+.mat-toolbar.mat-primary {
+  position:sticky;
+  
+}
+
+
+
+.add-btn{
+  text-decoration: none;
+  color:white;
+  font-family: monospace;
+  background:crimson;
+  width: 170px;
+  text-align:center;
+  padding: 10px;
+  border:10px;
+  font-size: 14px;
+  
+  font-weight: bold;
+  
+}
+
+.add-btn:hover{
+  background: rgb(191, 241, 98);
+  color: black;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: larger;
+   
+}

@@ -1,0 +1,81 @@
+
+<div class="container">
+    <h2>Student Details</h2>
+    <form #userform="ngForm" ngNativeValidate >
+        {{student| json}} 
+        <div class="form-group">
+            <label for="name"><b>Name&emsp;</b></label>
+            <input id="name" name="name" class="form-control" [(ngModel)]="student.name" required 
+             type="text" pattern="[A-Za-z.\s]{3,}" #nameField="ngModel" />
+            <div [hidden]="nameField.valid ||nameField.untouched" class="error" >enter a valid name</div>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <label for="date"><b>Date of birth&emsp;</b></label>
+            <input id="date" type="date" class="form-control" max="2018-01-01" name="date" placeholder="" ngModel required #dateField="ngModel">
+            <div [hidden]="dateField.valid ||dateField.untouched" class="error" >date of birth is required</div>
+        </div>
+        
+        <br>
+        <div class="form-group">
+            <b>Gender</b>
+            <div class="form-check form-group">
+                <input class="form-check-input" type="radio" name="gender" id="Male" value="Male" checked [(ngModel)]="student.gender">
+                <label class="form-check-label" for="Male">
+                    Male
+                </label>
+            </div>
+            <div class="form-check form-group">
+                <input class="form-check-input" type="radio" name="gender" id="Female" value="Female" checked [(ngModel)]="student.gender">
+                <label class="form-check-label" for="Female">
+                    Female
+                </label>
+            </div>
+        </div>
+
+        <br>
+        <!-- <div class="form-group">
+            <label for="coursetype"><b>course&emsp;</b></label>
+            <select class="form-control" name="coursetype" id="coursetype" placeholder="course" [(ngModel)]="student.coursetype"  required #courseField="ngModel">
+                <optgroup label="courses">courses</optgroup>
+                <option >Java</option>
+                <option>Python</option>
+                <option>C++</option>
+                <option>JavaScript</option>
+                <option>Go</option>
+            </select>
+            <div [hidden]="courseField.valid ||courseField.untouched" class="error" >select a course</div>
+        </div> -->
+        
+        <br>
+        <!--Using ng-option and for loop-->
+        <div class="form-group">
+            <label for="coursetype"><b>course&nbsp;</b><span class="max"> maximum:3-courses</span></label>
+            <ng-select class="form-control" [items]="cars" [multiple]="true" [maxSelectedItems]="3"
+            [searchable]="true" bindLabel="name" bindValue="id" [(ngModel)]="selectedCar" name="coursetype" id="coursetype" required #courseField="ngModel">
+            <ng-option *ngFor="let car of cars" class="form-control form-group" [value]="car.id">
+            </ng-option>
+            </ng-select>
+            <div [hidden]="courseField.valid ||courseField.untouched" class="error" >select a course</div>
+ 
+        </div>    
+        <br>
+        <div class="form-group">
+            <label for="phoneNo"><b>Mobile Number&emsp;</b></label>
+            <input id="phoneNo" name="phoneNo" class="form-control" [(ngModel)]="student.phoneNo" required type="text" pattern="[6789][0-9]{9}" #mobileField="ngModel" />
+            <div [hidden]="mobileField.valid ||mobileField.untouched" class="error" >enter a valid mobile number</div>
+        </div>
+
+        <br>
+        <div class="form-check form-group">
+            <input class="form-check-input" type="checkbox" id="agree" name="agree" [(ngModel)]="student.agree" required #agreeField="ngModel">
+            <label class="form-check-label" for="agree"><b>All details mentioned above are correct</b>
+            </label>
+            <div [hidden]="agreeField.valid ||agreeField.untouched" class="error" >*mandatory</div>
+        </div>
+
+        <br><br>
+        <button class="btn btn-secondary">Submit</button>
+    </form>
+</div>

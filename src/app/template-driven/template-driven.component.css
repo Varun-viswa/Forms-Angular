@@ -1,0 +1,18 @@
+.container{
+    padding: 50px;
+    width: 600px;
+    margin-right:60%;
+}
+
+.ng-invalid:not(form).ng-touched{
+    border:1px solid crimson;
+}
+
+.error{
+    color:crimson;
+}
+
+.max{
+    color: teal;
+    font-size: smaller;
+}
